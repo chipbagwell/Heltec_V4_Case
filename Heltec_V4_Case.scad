@@ -28,23 +28,32 @@ radiomodulelength = 40;
 radiowidth = 26;
 pcbthickness = 1.8;
 headerwidth = 2;
-radiobottomgap = 5;
+radiobottomgap = 6;
+radiotopgap = 5;
 
 module radioslide(){
     cube([radiomodulelength +2+2, radiowidth+2+2, 2]);
-    cube([2,6, 2+radiobottomgap+pcbthickness+2]);
-    translate([0,radiowidth-2,0])cube([2,6, 2+radiobottomgap+pcbthickness+2]);
+    cube([2,6, 2+radiobottomgap+pcbthickness+radiotopgap]);
+    translate([0,radiowidth-2,0])cube([2,6, 2+radiobottomgap+pcbthickness+radiotopgap]);
+    cube([1,radiowidth, 2+radiobottomgap+pcbthickness+radiotopgap]);
+    
     translate([2,0,2])color("green")cube([radiomodulelength, 2+headerwidth, radiobottomgap]);
     translate([2,radiowidth,2])color("green")cube([radiomodulelength, 2+headerwidth, radiobottomgap]);
     translate([2,0,2+radiobottomgap])color("green")cube([radiomodulelength, 2, pcbthickness]);
     translate([2,radiowidth+2,2+radiobottomgap])color("green")cube([radiomodulelength, 2, pcbthickness]);
-    translate([2,0,2+radiobottomgap+pcbthickness])color("green")cube([radiomodulelength, 2+headerwidth, 2]);
-    translate([2,radiowidth,2+radiobottomgap+pcbthickness])color("green")cube([radiomodulelength, 2+headerwidth, 2]);
+    translate([2,0,2+radiobottomgap+pcbthickness])color("blue")cube([radiomodulelength, 2+headerwidth, radiotopgap]);
+    translate([2,radiowidth,2+radiobottomgap+pcbthickness])color("green")cube([radiomodulelength, 2+headerwidth, radiotopgap]);
+    
+    translate([0,0,2+radiobottomgap+pcbthickness+radiotopgap-1])cube([16, radiowidth+2+2, 1]);
+    
 }
 
 
-radioslide();
-//difference(){
-//    caseBottom();
-//    color("red")cube([117,65,11]);
-//};
+//radioslide();
+difference(){
+    radioslide();
+    hull(){
+        translate([0,10,2+radiobottomgap+pcbthickness+2])rotate([0,90,0])cylinder(r=2,h=1,$fn=smoothness);
+        translate([0,20,2+radiobottomgap+pcbthickness+2])rotate([0,90,0])cylinder(r=2,h=1,$fn=smoothness);
+    }
+};
