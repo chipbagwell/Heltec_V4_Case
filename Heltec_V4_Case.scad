@@ -37,14 +37,14 @@ module radioslide(){
     translate([0,radiowidth-2,0])cube([2,6, 2+radiobottomgap+pcbthickness+radiotopgap]);
     cube([1,radiowidth, 2+radiobottomgap+pcbthickness+radiotopgap]);
     
-    translate([2,0,2])color("green")cube([radiomodulelength, 2+headerwidth, radiobottomgap]);
-    translate([2,radiowidth,2])color("green")cube([radiomodulelength, 2+headerwidth, radiobottomgap]);
-    translate([2,0,2+radiobottomgap])color("green")cube([radiomodulelength, 2, pcbthickness]);
-    translate([2,radiowidth+2,2+radiobottomgap])color("green")cube([radiomodulelength, 2, pcbthickness]);
-    translate([2,0,2+radiobottomgap+pcbthickness])color("blue")cube([radiomodulelength, 2+headerwidth, radiotopgap]);
-    translate([2,radiowidth,2+radiobottomgap+pcbthickness])color("green")cube([radiomodulelength, 2+headerwidth, radiotopgap]);
+    translate([2,0,2])cube([radiomodulelength, 2+headerwidth, radiobottomgap]);
+    translate([2,radiowidth,2])cube([radiomodulelength, 2+headerwidth, radiobottomgap]);
+    translate([2,0,2+radiobottomgap])cube([radiomodulelength, 2, pcbthickness]);
+    translate([2,radiowidth+2,2+radiobottomgap])cube([radiomodulelength, 2, pcbthickness]);
+    translate([2,0,2+radiobottomgap+pcbthickness])cube([radiomodulelength, 2+headerwidth, radiotopgap]);
+    translate([2,radiowidth,2+radiobottomgap+pcbthickness])cube([radiomodulelength, 2+headerwidth, radiotopgap]);
     
-    translate([0,0,2+radiobottomgap+pcbthickness+radiotopgap-1])cube([16, radiowidth+2+2, 1]);
+    translate([0,0,2+radiobottomgap+pcbthickness+radiotopgap-1])cube([radiomodulelength, radiowidth+2+2, 1]);
     
 }
 
@@ -56,4 +56,9 @@ difference(){
         translate([0,10,2+radiobottomgap+pcbthickness+2])rotate([0,90,0])cylinder(r=2,h=1,$fn=smoothness);
         translate([0,20,2+radiobottomgap+pcbthickness+2])rotate([0,90,0])cylinder(r=2,h=1,$fn=smoothness);
     }
+    translate([5,6.5,1+radiobottomgap+pcbthickness+radiotopgap])color("red")cylinder(r=2,h=1,$fn=smoothness);
+    translate([5,radiowidth+2+2-6.5,1+radiobottomgap+pcbthickness+radiotopgap])color("red")cylinder(r=2,h=1,$fn=smoothness);
+    translate([16.8,6,2+radiobottomgap+pcbthickness+radiotopgap-1])cube([radiomodulelength, radiowidth+2+2-12, 1]);
+    
+    
 };
