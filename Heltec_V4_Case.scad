@@ -25,7 +25,7 @@ module caseBottom(){
 
 
 radiomodulelength = 90;
-radiowidth = 15;
+radiowidth = 26;
 pcbthickness = 1.5;
 headerwidth = 2;
 radiobottomgap = 5;
