@@ -24,15 +24,16 @@ module caseBottom(){
 };
 
 
-radiomodulelength = 90;
+radiomodulelength = 40;
 radiowidth = 26;
-pcbthickness = 1.5;
+pcbthickness = 1.8;
 headerwidth = 2;
 radiobottomgap = 5;
 
 module radioslide(){
     cube([radiomodulelength +2+2, radiowidth+2+2, 2]);
-    cube([2,radiowidth+2+2, 2+radiobottomgap+pcbthickness+2]);
+    cube([2,6, 2+radiobottomgap+pcbthickness+2]);
+    translate([0,radiowidth-2,0])cube([2,6, 2+radiobottomgap+pcbthickness+2]);
     translate([2,0,2])color("green")cube([radiomodulelength, 2+headerwidth, radiobottomgap]);
     translate([2,radiowidth,2])color("green")cube([radiomodulelength, 2+headerwidth, radiobottomgap]);
     translate([2,0,2+radiobottomgap])color("green")cube([radiomodulelength, 2, pcbthickness]);
@@ -40,6 +41,7 @@ module radioslide(){
     translate([2,0,2+radiobottomgap+pcbthickness])color("green")cube([radiomodulelength, 2+headerwidth, 2]);
     translate([2,radiowidth,2+radiobottomgap+pcbthickness])color("green")cube([radiomodulelength, 2+headerwidth, 2]);
 }
+
 
 radioslide();
 //difference(){
