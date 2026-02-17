@@ -65,7 +65,7 @@ module casetop(){
                 union(){
                     color("green")cube([radiomodulelength-4,radiowidth-4,radiomoduleheight-4]);  
                     color("blue")translate([radiomodulelength-17,radiowidth-4,-radiomoduleheight+1])cube([13,15,casebottomheight+radiomoduleheight-4.2]);
-                    color("red")translate([0,-casebottomlength+radiowidth-4,-radiomoduleheight+1])cube([casebottomwidth,casebottomlength,casebottomheight]);
+                    color("red")translate([0,-casebottomlength+radiowidth-10,-radiomoduleheight+1])cube([casebottomwidth,casebottomlength+6+15,casebottomheight]);
                 };
                 sphere(r=4,$fn=smoothness); 
             }
@@ -89,7 +89,7 @@ module casetop(){
             // pcb hole
             color("red")translate([2,2,radiobottomgap+2])cube([radiomodulelength-1,radiowidth,pcbthickness]);
             color("blue")translate([radiomodulelength-6.5,radiowidth+23,-2])rotate([90,0,0])cylinder(h=10,r=3.5,$fn=smoothness);
-            color("green")translate([radiomodulelength-6.5,radiowidth+18,-2])rotate([90,0,0])cylinder(h=5,r=4.5,$fn=6);
+            color("green")translate([radiomodulelength-6.5,radiowidth+18,-2])rotate([90,0,0])cylinder(h=5,r=5,$fn=6);
             
         }
     }
