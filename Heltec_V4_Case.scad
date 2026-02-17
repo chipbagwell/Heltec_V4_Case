@@ -84,11 +84,13 @@ module casetop(){
             // body hole
             color("red")translate([2,4,-2])cube([radiomodulelength,radiowidth-4,radiomoduleheight+5]);
             color("red")translate([1,6,4])cube([1,radiowidth-8,radiomoduleheight-2]);
-            color("green")translate([radiomodulelength-15,radiowidth,-2])cube([17,17,radiomoduleheight+5]);
+            color("green")translate([radiomodulelength-15,radiowidth,-8])cube([17,17,radiomoduleheight+11]);
             color("red")translate([4,-casebottomlength+radiowidth,-radiomoduleheight+5])cube([casebottomwidth,casebottomlength,casebottomheight]);
             // pcb hole
             color("red")translate([2,2,radiobottomgap+2])cube([radiomodulelength-1,radiowidth,pcbthickness]);
-            color("blue")translate([radiomodulelength-6.5,radiowidth+23,2])rotate([90,0,0])cylinder(h=10,r=3.5,$fn=smoothness);
+            color("blue")translate([radiomodulelength-6.5,radiowidth+23,-2])rotate([90,0,0])cylinder(h=10,r=3.5,$fn=smoothness);
+            color("green")translate([radiomodulelength-6.5,radiowidth+18,-2])rotate([90,0,0])cylinder(h=5,r=4.5,$fn=6);
+            
         }
     }
 };
